@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="houses.css">
+</head>
+<body id="index">
+    <div class="nav">
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:3000/RENDU HP/hp.html">HARRY POTTER</a></li>
+                <li><a href="http://127.0.0.1:3000/RENDU HP/house.html">HOUSES</a></li>
+                <li><a href="#">FILMS</a></li>
+            </ul>
+        </nav>
+    </div>
+
+        <header>
+            <ul>
+                <li><a href=#Gryffindor>Gryffindor</a><li> 
+                <li><a href=#Hufflepuff>Hufflepuff</a><li>
+                <li><a href=#Ravenclaw>Ravenclaw</a><li>
+                <li><a href=#Slytherin>Slytherin</a><li> <!-- nav permettant de naviguer dans les differentes maison, features in progress je dois tout d'abord trier tout les personnages par maison -->
+              </ul>
+        </header>
+
+    <main>
+        <div class="container">
+          <div class="jumbotron">
+            <div class="row">
+              <h1 class="text-primary text-center">Hogwarts Houses</h1>
+              <h2 class=text-center><em>From Harry Potter by J.K. Rowling</em></h2>
+              <div class="thumbnail">
+                <image src="drapeau-des-4-maisons-de-poudlard-.png">
+                  <div class="caption text-center">The four Hogwarts house crests and representative animals.</div>
+              </div>
+                
+                
+                
+            <div class="houses">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h3 id="Gryffindor"><strong>Gryffindor</strong></h3>
+                      <p>Gryffindor values courage, bravery, nerve, and chivalry. Its mascot is the lion, and its colours are scarlet and gold. The Head of this house is the Transfiguration teacher and Deputy Headmistress, Minerva McGonagall, and the house ghost is Sir Nicholas de Mimsy-Porpington, more commonly known as Nearly Headless Nick. According to Rowling, Gryffindor corresponds roughly to the element of fire. The founder of the house is Godric Gryffindor.</p>
+                    </div>
+                    <div class="col-md-6">
+                      <h3 id="Hufflepuff"><strong>Hufflepuff</strong></h3>
+                      <p>Hufflepuff values hard work, patience, justice, and loyalty. The house mascot is the badger, and canary yellow and black are its colours. The Head of this house is the Herbology teacher Pomona Sprout, and the house ghost is The Fat Friar.
+                        According to Rowling, Hufflepuff corresponds roughly to the element of earth. The founder of this house is Helga Hufflepuff.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div class="houses2">
+                <div class="container">
+                  <div class="row">
+                   
+                        <div class="col-md-6">
+                      <h3 id="Ravenclaw"><strong>Ravenclaw</strong></h3>
+                        <p>Ravenclaw values intelligence, creativity, learning, and wit. The house mascot is an eagle and the house colours are blue and bronze (blue and grey in the films). The head of this house is the Charms professor, Filius Flitwick, and the
+                          house ghost is The Grey Lady. According to Rowling, Ravenclaw corresponds roughly to the element of air. The founder of this house is Rowena Ravenclaw.</p>
+                      </div>
+                      <div class="col-md-6">
+                        <h3 id="Slytherin"><strong>Slytherin</strong></h3>
+                        <p>Slytherin house values ambition, cunning, leadership, and resourcefulness; the Sorting Hat said in Harry Potter and the Philosopher's Stone that Slytherins will do anything to get their way. The house mascot of Slytherin is the serpent,
+                          and the house colours are green and silver. Salazar Slytherin founded the house. The Head of House is Severus Snape until near the end of the sixth book. Then, Horace Slughorn, the previous Head of House, comes out of retirement re-assuming
+                          authority. The ghost of Slytherin house is The Bloody Baron.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>      <!-- main decrivant les 4 maisons, descriptif recup sur internet-->     
+      
+                    
+                    
+                    
+        
+              
+        <div class="link" id="link">
+                      <div class="containerer">
+                        <p class="text-center" id="learn"><a href="https://en.wikipedia.org/wiki/Hogwarts" target="_blank">Learn more about all the houses of Hogwarts</a></p>
+                      </div>
+                    </div>
+
+
+<div id="characters"></div>
+
+    <script>
+      function fetchCharacters() {
+    return fetch("https://hp-api.lainocs.fr/characters").then((response) =>
+      response.json()
+    );
+  }
+                
+              async function displayCharacters() {
+                const data = await fetchCharacters();
+                data.forEach((character) => {
+                document.querySelector("#characters").innerHTML += `
+              <a href="single-hp.html?slug=${character.slug}">
+            <div class="characters">
+              <h2>${character.name}</h2>
+            <img src="${character.image}" alt "${character.name}"/>
+          </div>
+        </a> 
+      `;
+    });
+   }
+                
+    displayCharacters();
+
+</script>
+</body>
+<!-- fameuse api hp, ps je suis vraiment guezz en frontend, encore du boulot la dessus au moins j'essaye de faire seul XD-->
+</html>

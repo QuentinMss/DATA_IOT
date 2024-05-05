@@ -1,0 +1,93 @@
+nav {
+    display: flex;
+    justify-content: center; 
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+  }
+  
+  nav ul li {
+    display: inline-block; 
+  }
+  
+  nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    background-color: #111;
+  }
+
+header {
+    display: flex;
+    justify-content: center; 
+  }
+  
+  header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+  }
+  
+  header ul li {
+    display: inline-block; 
+  }
+  
+  header ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  header ul li a:hover {
+    background-color: #111;
+  }
+  
+  img {
+    display: block;
+    margin: auto;
+  }  
+
+
+body {
+    background-color: bisque;
+}
+
+h1{
+  text-align: center;
+  padding-bottom: 200px;
+  padding-top: 150px;
+  font-family: fantasy;
+  font-size: 50px;
+}
+
+#characters {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 10% 10% 10%; /* j'ai voulu flex en utilisant un grid, plutot satisfait ca a marché*/
+}
+
+.characters img {
+  height: 450px;
+  width: 400px;
+  }
+
+.characters {
+  display: flex;
+  flex-direction: column;
+}
+
+.characters {
+  width: 295px;
+}

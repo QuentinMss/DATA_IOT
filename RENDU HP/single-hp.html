@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="character"></div>
+    <script>
+      function fetchCharacter() {
+        let url = window.location.search;
+        let slug = new URLSearchParams(url).get("slug");
+        return fetch("https://hp-api.lainocs.fr/characters/" + slug).then(
+          (response) => response.json()
+        );
+      }
+
+      async function displayCharacter() {
+        const data = await fetchCharacter();
+        document.querySelector("#character").innerHTML = `
+                <h1>${data.name}</h1>
+                    <p>${data.house}</p>
+                    <p>${data.actor}</p>
+                    <img src="${data.image}" alt="${data.name}">
+                    <a href="hp.html">back</a>
+            `;
+      }
+      displayCharacter();
+
+      const apiUrl =
+        "file:///C:/Etudes/IIM/Semestre%202/CDI/API/VSC/RENDU%20HP/index.html#";
+
+      const postData = {
+        house: data.house,
+      };
+
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postData),
+      };
+
+      fetch(apiUrl, requestOptions)
+        .then((response) => {
+          // Gérer la réponse ici si nécessaire
+        })
+        .catch((error) => {
+          console.error("Erreur fetch :", error);
+        });
+    </script>
+  </body>
+</html>
